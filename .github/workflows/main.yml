@@ -55,7 +55,6 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            cd /home/root/kittygram
             docker compose pull
             docker compose up -d
       - name: Run tests on deployed containers

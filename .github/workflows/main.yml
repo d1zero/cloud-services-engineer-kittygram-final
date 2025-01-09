@@ -36,9 +36,7 @@ jobs:
           touch .env
           echo "${{ env.DOTENV_FILE }}" >> .env
           docker compose build
-          docker push ${{ secrets.DOCKER_USERNAME }}/kittygram_backend:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/kittygram_gateway:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/kittygram_frontend:latest
+          docker compose push
 
   deploy:    
     runs-on: ubuntu-latest

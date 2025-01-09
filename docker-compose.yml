@@ -17,7 +17,7 @@ services:
   backend:
     build:
       context: ./backend
-    image: d1zero/kittygram-backend:latest
+    image: d1zero/kittygram_backend:latest
     volumes:
       - static:/app/static
       - media:/app/media
@@ -32,7 +32,7 @@ services:
   frontend:
     build:
       context: ./frontend
-    image: d1zero/kittygram-frontend:latest
+    image: d1zero/kittygram_frontend:latest
     volumes:
       - static:/app/static
     depends_on:
@@ -43,7 +43,7 @@ services:
   gateway:
     build:
       context: ./nginx
-    image: d1zero/kittygram-gateway:latest
+    image: d1zero/kittygram_gateway:latest
     ports:
       - "80:80"
     volumes:

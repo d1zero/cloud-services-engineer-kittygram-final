@@ -61,8 +61,8 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            touch .env
-            echo "${{ secrets.DOTENV_FILE }}" >> .env
+            touch kittygram/.env
+            echo "${{ secrets.DOTENV_FILE }}" >> kittygram/.env
             docker compose -f kittygram/docker-compose.yml pull
             docker compose -f kittygram/docker-compose.yml down
             docker compose -f kittygram/docker-compose.yml up -d

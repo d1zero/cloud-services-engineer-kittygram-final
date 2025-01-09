@@ -20,7 +20,6 @@ jobs:
       - name: Run tests
         run: |
           python backend/manage.py test
-          echo $DOTENV_FILE
 
   build:
     runs-on: ubuntu-latest
@@ -34,6 +33,8 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build and push images
         run: |
+          touch .env
+          echo "${{ secrets.DOTENV_FILE }}" >> .env
           docker compose build
           docker compose push
 
@@ -61,7 +62,7 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             touch .env
-            echo "${{ env.DOTENV_FILE }}" >> .env
+            echo "${{ secrets.DOTENV_FILE }}" >> .env
             docker compose -f kittygram/docker-compose.yml pull
             docker compose -f kittygram/docker-compose.yml down
             docker compose -f kittygram/docker-compose.yml up -d

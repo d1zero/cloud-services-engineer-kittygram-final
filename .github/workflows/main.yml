@@ -20,7 +20,7 @@ jobs:
       - name: Run tests
         run: |
           python backend/manage.py test
-          echo "${{ env.DOTENV_FILE }}"
+          echo $DOTENV_FILE
 
   build:
     runs-on: ubuntu-latest

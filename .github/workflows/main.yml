@@ -61,6 +61,6 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            docker-compose -f kittygram/docker-compose.yml pull
-            docker-compose -f kittygram/docker-compose.yml down
-            docker-compose -f kittygram/docker-compose.yml up -d
+            docker compose -f kittygram/docker-compose.yml pull
+            docker compose -f kittygram/docker-compose.yml down
+            docker compose -f kittygram/docker-compose.yml up -d

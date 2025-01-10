@@ -37,8 +37,8 @@ jobs:
         run: |
           touch .env
           echo "${{ secrets.DOTENV_FILE }}" >> .env
-          docker compose build
-          docker compose push
+          docker compose build -f docker-compose.production.yml
+          docker compose push -f docker-compose.production.yml
 
   deploy:
     name: Deploy to server
@@ -48,7 +48,7 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v3
 
-      - name: copy docker-compose
+      - name: copy docker compose
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.SERVER_HOST }}

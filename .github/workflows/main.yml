@@ -37,8 +37,8 @@ jobs:
         run: |
           touch .env
           echo "${{ secrets.DOTENV_FILE }}" >> .env
-          docker compose build -f docker-compose.production.yml
-          docker compose push -f docker-compose.production.yml
+          docker compose -f docker-compose.production.yml build
+          docker compose -f docker-compose.production.yml push
 
   deploy:
     name: Deploy to server

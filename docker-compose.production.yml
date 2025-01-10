@@ -15,7 +15,7 @@ services:
       context: ./backend
     image: d1zero/kittygram_backend:latest
     volumes:
-      - static:/app/static
+      - be_static:/app/collected_static
       - media:/app/media
     env_file:
       - .env
@@ -30,7 +30,7 @@ services:
       context: ./frontend
     image: d1zero/kittygram_frontend:latest
     volumes:
-      - static:/app/static
+      - fe_static:/app/build
     depends_on:
       - backend
     networks:
@@ -44,8 +44,9 @@ services:
     ports:
       - "80:80"
     volumes:
-      - static:/static
-      - media:/media
+      - fe_static:/var/html/static
+      - be_static:/var/html/backend
+      - media:/var/html/media
     depends_on:
       - backend
       - frontend
@@ -54,7 +55,8 @@ services:
     restart: always
 
 volumes:
-  static:
+  be_static:
+  fe_static:
   media:
   pg_data:
 

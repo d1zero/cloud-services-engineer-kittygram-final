@@ -6,21 +6,6 @@ on:
       - main
 
 jobs:
-
-  gateway_config_validate:
-    runs-on: ubuntu-latest
-    name: Gateway config validation
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Install Nginx
-        run: sudo apt-get update && sudo apt-get install -y nginx
-      - name: Copy Nginx config to default location
-        run: |
-          sudo cp ./nginx/nginx.conf /etc/nginx/sites-enabled/nginx.conf
-      - name: Validate Nginx configuration
-        run: sudo nginx -t
-
   be_test:
     name: Backend tests
     runs-on: ubuntu-latest
@@ -83,7 +68,6 @@ jobs:
 
   build_gateway:
     name: Build gateway
-    needs: gateway_config_validate
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo

@@ -11,8 +11,6 @@ services:
     restart: always
 
   backend:
-    build:
-      context: ./backend
     image: d1zero/kittygram_backend:latest
     volumes:
       - be_static:/app/collected_static
@@ -26,8 +24,6 @@ services:
     restart: always
 
   frontend:
-    build:
-      context: ./frontend
     image: d1zero/kittygram_frontend:latest
     volumes:
       - fe_static:/app/build
@@ -38,8 +34,6 @@ services:
     restart: always
 
   gateway:
-    build:
-      context: ./nginx
     image: d1zero/kittygram_gateway:latest
     ports:
       - "80:80"

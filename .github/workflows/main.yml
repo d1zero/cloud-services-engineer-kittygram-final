@@ -184,4 +184,4 @@ jobs:
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            ${{ github.actor }} неуспешно задеплоил ${{ github.ref_name }} ❌
+            ${{ github.actor }} неуспешно задеплоил ${{ github.ref_name }}

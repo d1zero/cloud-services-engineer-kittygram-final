@@ -20,8 +20,7 @@ services:
     env_file:
       - .env
     depends_on:
-      db:
-        condition: service_healthy
+      - db
     networks:
       - kittygram_network
     restart: always

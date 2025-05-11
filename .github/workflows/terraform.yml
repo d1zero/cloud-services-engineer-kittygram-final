@@ -18,6 +18,9 @@ jobs:
     defaults:
       run:
         working-directory: ./infra
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_KEY }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -27,9 +30,6 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_KEY }}
 
       - name: Terraform Plan
         if: ${{ github.event.inputs.action == 'plan' }}

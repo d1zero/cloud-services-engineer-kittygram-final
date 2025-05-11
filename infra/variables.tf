@@ -31,8 +31,7 @@ variable "vm_image_id" {
   default     = "fd85m9q2qspfnsv055rh" // ubuntu-24-04-lts-v20250324
 }
 
-variable "ssh_pub_key_path" {
-  description = "Путь к публичному SSH-ключу"
+variable "ssh_pub_key" {
+  description = "Публичный SSH-ключу"
   type        = string
-  default     = "~/.ssh/id_ed25519.pub"
 }

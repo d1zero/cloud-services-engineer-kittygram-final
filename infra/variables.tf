@@ -1,25 +1,11 @@
-variable "yc_token" {
-  description = "API токен для доступа к Yandex Cloud"
-  type        = string
-  default     = "y0_AgAAAAAi0XVuAATuwQAAAAEVQm0gAABFok-Waj1LAZibKS1kmOGHOk090w"
-}
-
 variable "yc_cloud_id" {
   description = "ID облака в Yandex Cloud"
   type        = string
-  default     = "b1g3l5vhubit86v2h8kr"
 }
 
 variable "yc_folder_id" {
   description = "ID каталога (folder) в Yandex Cloud"
   type        = string
-  default     = "b1guv1tcc80vbn6l0ogc"
-}
-
-variable "yc_zone" {
-  description = "Зона доступности (например, ru-central1-a)"
-  type        = string
-  default     = "ru-central1-a"
 }
 
 variable "subnet_cidr" {

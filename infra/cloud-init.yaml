@@ -4,5 +4,6 @@ packages:
   - docker.io
   - docker-compose
 runcmd:
-  - [ systemctl, enable, docker ]
-  - [ systemctl, start, docker ]
+  - apt-get install -y docker.io docker-compose
+  - systemctl enable docker
+  - systemctl start docker

@@ -29,9 +29,9 @@ resource "yandex_vpc_security_group" "kittygram_sg" {
   }
 
   egress {
-    protocol    = "TCP"
-    from_port   = 0
-    to_port     = 0
+    protocol       = "ANY"
+    from_port      = 0
+    to_port        = 65535
     v4_cidr_blocks = ["0.0.0.0/0"]
   }
 }

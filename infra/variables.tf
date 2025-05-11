@@ -1,3 +1,8 @@
+variable "yc_token" {
+  description = "API токен для доступа к Yandex Cloud"
+  type        = string
+}
+
 variable "yc_cloud_id" {
   description = "ID облака в Yandex Cloud"
   type        = string
@@ -6,6 +11,12 @@ variable "yc_cloud_id" {
 variable "yc_folder_id" {
   description = "ID каталога (folder) в Yandex Cloud"
   type        = string
+}
+
+variable "yc_zone" {
+  description = "ID каталога (folder) в Yandex Cloud"
+  type        = string
+  default     = "ru-central1-a"
 }
 
 variable "subnet_cidr" {

@@ -33,7 +33,7 @@ jobs:
 
       - name: Terraform Plan
         if: ${{ github.event.inputs.action == 'plan' }}
-        run: terraform plan
+        run: terraform plan -var 'yc_cloud_id=$YC_CLOUD_ID' -var 'yc_folder_id=$YC_FOLDER_ID' -var 'yc_token=$YC_TOKEN'
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_KEY }}

@@ -21,7 +21,7 @@ resource "yandex_compute_instance" "kittygram_vm" {
   }
 
   metadata = {
-    user-data = file("./cloud-init.yaml")
+    user-data = "${file("cloud-init.yaml")}"
     ssh-keys  = "ubuntu:${var.ssh_pub_key}"
   }
 }

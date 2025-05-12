@@ -143,9 +143,9 @@ jobs:
           script: |
             touch ~/kittygram/.env
             echo "${{ secrets.DOTENV_FILE }}" >> ~/kittygram/.env
-            docker compose -f ~/kittygram/docker-compose.production.yml pull
-            docker compose -f ~/kittygram/docker-compose.production.yml down
-            docker compose -f ~/kittygram/docker-compose.production.yml up -d
+            docker-compose -f ~/kittygram/docker-compose.production.yml pull
+            docker-compose -f ~/kittygram/docker-compose.production.yml down
+            docker-compose -f ~/kittygram/docker-compose.production.yml up -d
 
   auto_tests:
     name: Auto Tests
